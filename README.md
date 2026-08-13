@@ -1,8 +1,20 @@
-# crud_livraria
+    ## Pesquisa sobre Prepared Statements 
 
-RF1: Cadastrar Livro: o sistema deve permitir cadastrar livros informando titulo, autor e ano de publicação;
-RF2: Listar Livros: o sistema deve apresentar todos os livros cadastrados;
-RF3: Editar Livros: o sistema deve permitir a alteração de informações de livros já cadastrados;
-RF4: Excluir Livros: o sistema deve permitir a exclusão de informações de livros já cadastrados;
+    * O que são Prepared Statements?
+        Prepared Statements são uma forma de fazer comandos SQL de uma maneira mais segura usando PHP e MySQL. Eles servem principalmente para evitar problemas de segurança, como o SQL Injection.
+        Basicamente, ao invés de colocar diretamente uma informação que o usuário digitou dentro do comando SQL, usamos alguns espaços chamados de parâmetros, que geralmente aparecem como ?. Depois os valores são enviados separadamente para o banco de dados.
 
-(1/2) RNF1: Validação dos Campos: O sistema não deve permitir o cadastro de livros com titulo, autor ou ano vazios.
+    * O que é SQL Injection?
+        SQL Injection é um tipo de ataque que pode acontecer quando um sistema coloca diretamente informações que o usuário digitou dentro de um comando SQL.
+        Isso pode ser um problema porque uma pessoa pode tentar colocar comandos SQL no lugar de uma informação normal, fazendo o banco de dados entender aquilo como um comando e não apenas como um texto.
+        Dependendo da situação, isso pode permitir que uma pessoa consiga acessar, alterar ou até apagar informações do banco de dados.
+        Por isso não é recomendado colocar diretamente os dados fornecidos pelo usuário dentro de uma consulta SQL.
+
+
+
+    ( [Fonte 1] (https://www.w3schools.com/php/php_mysql_prepared_statements.asp) )
+    ( [Fonte 2] (https://www.php.net/manual/en/mysqli.quickstart.prepared-statements.php) )
+
+
+    ## Fork
+    *
