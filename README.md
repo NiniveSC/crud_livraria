@@ -34,4 +34,15 @@
 
     ##Fork
 
-    *
+    *Problema encontrado:
+        No cadastro, os dados enviados pelo formulário que são o título, autor e ano, são colocados diretamente dentro do comando SQL. Isso como vimos deixa o sistema vulnerável a SQL Injection.
+
+            $sql = "INSERT INTO livros (titulo,autor,ano) VALUES ('$titulo','$autor','$ano')";
+            mysqli_query($conexao, $sql);
+
+        Essa parte do código mostra que os dados estão sendo diretamente inseridos na tabela do banco de dados no mysql, o que é o errado a se fazer.
+
+    *Como solucionei:
+        A solução que tive foi alterar o código para utilizar Prepared Statement, separando o comando SQL dos dados recebidos pelo usuário.
+
+    *Conclusão que tive:
