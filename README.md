@@ -45,4 +45,13 @@
     *Como solucionei:
         A solução que tive foi alterar o código para utilizar Prepared Statement, separando o comando SQL dos dados recebidos pelo usuário.
 
+            $sql = "INSERT INTO livros (titulo,autor,ano) VALUES (?, ?, ?)";
+
+            $stmt = $conexao->prepare($sql);
+            $stmt->bind_param("ssi", $titulo, $autor, $ano);
+            $stmt->execute();
+
+        O $conexao faz a conexão com o banco de dados. Depois vem o prepare(), que prepara o comando SQL antes de enviar para o banco. O $stmt guarda esse comando preparado. Em seguida, o bind_param() liga os valores aos ? do comando e o "ssi" indica o tipo de cada valor, sendo s para texto e i para número inteiro. Por último, o execute() executa o comando no banco de dados.
+
     *Conclusão que tive:
+        Com essa atividade consegui entender melhor o que são Prepared Statements e porque eles são importantes para a segurança do código. Antes eu não sabia que colocar os dados diretamente no SQL poderia causar problemas como o SQL Injection. Ao realizar a pesquisa e o Fork do CRUD da livraria, consegui encontrar esse problema no cadastro (e no final da atividade entendi que se aplica para atualizar, editar e excluir) e mudar o código para usar o Prepared Statements. Também descobri que essa mudança não aparece para o usuário, mas deixa a comunicação com o banco de dados mais segura. Com isso, entendi que os Prepared Statements são uma boa prática para evitar problemas e proteger melhor os dados de uma aplicação.
